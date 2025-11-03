@@ -20,7 +20,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     $action = $_POST['action'];
     if ($action ==='Add New Wheel'){
-        header('Location: add_product.php');
+        header('Location: inventory_add_product.php');
         exit();
         
 
@@ -93,9 +93,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             </td>
             <td>
                 <a href="product_details.php?rim_id=<?= $row['rim_id'] ?>">View</a> | 
-                <a href="update_product.php?rim_id=<?= $row['rim_id'] ?>">Update</a> | 
+                <a href="inventory_update_product.php?rim_id=<?= $row['rim_id'] ?>">Update</a> | 
                 
-                <a href="delete_product.php?id=<?php echo $row['rim_id']; // attaches the Rim ID?>"  
+                <a href="inventory_delete_product.php?id=<?php echo $row['rim_id']; // attaches the Rim ID?>"  
                 onclick="return confirm('Are you sure you want to delete this wheel?');">
                 Delete</a>
 
