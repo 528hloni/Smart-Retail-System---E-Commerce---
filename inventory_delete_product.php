@@ -6,51 +6,55 @@ session_start();
 //if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Inventory Manager') {
 //    header("Location: login.php");
 //    exit();
-
 //}
 
-try{
-//check if ID is passed
-if (isset($_GET['id'])) {
-    $id = intval($_GET['id']); // sanitize input
+try {
+    //check if ID is passed
+    if (isset($_GET['id'])) {
+        $id = intval($_GET['id']); // sanitize input
 
-//Fetch product info before deletion 
-    $stmt = $pdo->prepare("SELECT * FROM rims WHERE rim_id = ?");
-    $stmt->execute([$id]);
-    $product = $stmt->fetch(PDO::FETCH_ASSOC);
+        //Fetch product info before deletion 
+        $stmt = $pdo->prepare("SELECT * FROM rims WHERE rim_id = ?");
+        $stmt->execute([$id]);
+        $product = $stmt->fetch(PDO::FETCH_ASSOC);
 
- if ($product) {
-        // Delete student securely
-        $stmt = $pdo->prepare("DELETE FROM product WHERE rim_id = ?");
-        $stmt->execute([$id]);    
+        if ($product) {
+            // --- Delete the image file first ---
+            if (!empty($product['image_url'])) {
+                // Assuming image_url looks like: "uploaded_images/Rim1.jpg"
+                $imagePath = __DIR__ . '/' . $product['image_url'];
 
- //Redirect with  message
-        echo '<script>
-        alert("Successfully deleted student record");
-        window.location.href = "dashboard.php";
-       </script>';
-        exit();
-        
+                if (file_exists($imagePath)) {
+                    unlink($imagePath); // delete the image file
+                }
+            }
+
+            // --- Delete the product record ---
+            $stmt = $pdo->prepare("DELETE FROM rims WHERE rim_id = ?");
+            $stmt->execute([$id]);    
+
+            //Redirect with message
+            echo '<script>
+                alert("Product deleted successfully!");
+                window.location.href = "inventory_dashboard.php";
+            </script>';
+            exit();
+
+        } else {
+            echo '<script>
+                alert("Product not found");
+                window.location.href = "inventory_dashboard.php";
+            </script>';
+        }
     } else {
-    
         echo '<script>
-        alert("Student not found");
-        window.location.href = "dashboard.php";
-       </script>';
+            alert("Invalid request");
+            window.location.href = "inventory_dashboard.php";
+        </script>';
     }
-} else {
-    
-    echo '<script>
-        alert("Invalid request");
-        window.location.href = "dashboard.php";
-       </script>';
-}
-}catch (Exception $e) {
+} catch (Exception $e) {
     // General error handler
     echo "Error: " . $e->getMessage();
 }
-
-?>        
-
-
+?>
 

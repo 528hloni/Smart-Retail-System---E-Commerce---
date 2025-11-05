@@ -24,41 +24,74 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     if($action === 'Save' && $wheel_name && $wheel_model && $size_inch && $bolt_pattern && $offset && $center_bore && $color && $price && $stock_quantity){
         // Handle file upload
         if (isset($_FILES['wheel_image']) && $_FILES['wheel_image']['error'] === UPLOAD_ERR_OK) {
-            $fileTmpPath = $_FILES['wheel_image']['tmp_name'];
-            $fileName = $_FILES['wheel_image']['name'];
-            $fileSize = $_FILES['wheel_image']['size'];
-            $fileType = $_FILES['wheel_image']['type'];
-            $fileNameCmps = explode(".", $fileName);
-            $fileExtension = strtolower(end($fileNameCmps));
+           $fileTmpPath = $_FILES['wheel_image']['tmp_name'];
+           $fileName = $_FILES['wheel_image']['name'];
+           $fileNameCmps = explode(".", $fileName);
+           $fileExtension = strtolower(end($fileNameCmps));
 
-            // Sanitize file name
-            $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+            
 
-            // Check if the file has one of the allowed extensions
-            $allowedfileExtensions = array('jpg', 'gif', 'png', 'jpeg');
-            if (in_array($fileExtension, $allowedfileExtensions)) {
-                // Directory in which the uploaded file will be moved
-                $uploadFileDir = './uploaded_images/';
-                $dest_path = $uploadFileDir . $newFileName;
+             $baseName = preg_replace("/[^a-zA-Z0-9_\-]/", "_", pathinfo($fileName, PATHINFO_FILENAME));
+             $baseName = substr($baseName, 0, 200); // keep filename length reasonable
+             $candidateName = $baseName . '.' . $fileExtension;
 
-                if(move_uploaded_file($fileTmpPath, $dest_path)) 
-                {
-                  $image_url = $dest_path;
-                }
-                else 
-                {
-                  echo 'There was some error moving the file to upload directory. Please make sure the upload directory is writable by web server.';
-                  exit();
-                }
-            } else {
-                echo 'Upload failed. Allowed file types: ' . implode(',', $allowedfileExtensions);
-                exit();
-            }
-        } else {
-            echo 'There is some error in the file upload. Please check the following error.<br>';
-            echo 'Error:' . $_FILES['wheel_image']['error'];
+              $allowedfileExtensions = array('jpg', 'jpeg', 'png', 'gif');
+    if (!in_array($fileExtension, $allowedfileExtensions)) {
+        echo 'Invalid file type. Allowed types: jpg, jpeg, png, gif.';
+        exit();
+    }
+
+    // Ensure Uploaded_Images folder exists
+    $uploadedDir = __DIR__ . '/Uploaded_Images/';
+    if (!is_dir($uploadedDir)) {
+        if (!mkdir($uploadedDir, 0755, true)) {
+            echo 'Error: Unable to create Uploaded_Images folder. Check permissions.';
             exit();
         }
+    }
+
+    // If a file with the candidate name already exists, append suffix (_1, _2, ...)
+    $finalName = $candidateName;
+    $i = 1;
+    while (file_exists($uploadedDir . $finalName)) {
+        $finalName = $baseName . '_' . $i . '.' . $fileExtension;
+        $i++;
+    }
+
+    $uploadedFullPath = $uploadedDir . $finalName;
+
+    // Path in Rims_Images to check (staging area)
+    $rimsFolderPath = __DIR__ . '/Rims_Images/' . $fileName;
+
+    if (file_exists($rimsFolderPath)) {
+        // Copy from staging to uploaded (preserve original file content)
+        if (!copy($rimsFolderPath, $uploadedFullPath)) {
+            echo 'Error: Failed to copy file from Rims_Images to Uploaded_Images.';
+            exit();
+        }
+    } else {
+        // Move uploaded temp file into Uploaded_Images
+        if (!move_uploaded_file($fileTmpPath, $uploadedFullPath)) {
+            echo 'Error: Failed to move uploaded file to Uploaded_Images.';
+            exit();
+        }
+    }
+
+    // Save DB path (use forward slashes for web)
+    $image_url = 'Uploaded_Images/' . $finalName;
+} else {
+    echo 'Please upload a valid image.';
+    exit();
+}
+
+
+
+
+           
+               
+
+               
+               
 
         // Insert into database
 

@@ -4,7 +4,7 @@
 session_start();
 
 //session check: only admin is allowed here
-//if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Administrator') {
+//if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Inventory Manager') {
 //    header("Location: login.php");
 //    exit();
 //}
@@ -46,48 +46,80 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     if($action === 'Update' && $wheel_name && $wheel_model && $size_inch && $bolt_pattern && $offset && $center_bore && $color && $price && $stock_quantity){
         // Handle file upload
         if (isset($_FILES['wheel_image']) && $_FILES['wheel_image']['error'] === UPLOAD_ERR_OK) {
-            $fileTmpPath = $_FILES['wheel_image']['tmp_name'];
-            $fileName = $_FILES['wheel_image']['name'];
-            $fileSize = $_FILES['wheel_image']['size'];
-            $fileType = $_FILES['wheel_image']['type'];
-            $fileNameCmps = explode(".", $fileName);
-            $fileExtension = strtolower(end($fileNameCmps));
+           $fileTmpPath = $_FILES['wheel_image']['tmp_name'];
+           $originalName = $_FILES['wheel_image']['name'];
+           $fileNameCmps = explode(".", $originalName);
+           $fileExtension = strtolower(end($fileNameCmps));
 
-            // Sanitize file name
-            $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+            
+             $baseName = preg_replace("/[^a-zA-Z0-9_\-]/", "_", pathinfo($originalName, PATHINFO_FILENAME));
+             $baseName = substr($baseName, 0, 200); // limit length
+             $candidateName = $baseName . '.' . $fileExtension;
 
-            // Check if the file has one of the allowed extensions
-            $allowedfileExtensions = array('jpg', 'gif', 'png', 'jpeg');
-            if (in_array($fileExtension, $allowedfileExtensions)) {
-                // Directory in which the uploaded file will be moved
-                $uploadFileDir = './uploaded_images/';
-                $dest_path = $uploadFileDir . $newFileName;
+             $allowedfileExtensions = array('jpg', 'jpeg', 'png', 'gif');
+    if (!in_array($fileExtension, $allowedfileExtensions)) {
+        echo 'Upload failed. Allowed file types: ' . implode(', ', $allowedfileExtensions);
+        exit();
+    }
 
-                if(move_uploaded_file($fileTmpPath, $dest_path)) 
-                {
-                  $image_url = $dest_path;
-                }
-                else 
-                {
-                  echo 'There was some error moving the file to upload directory. Please make sure the upload directory is writable by web server.';
-                  exit();
-                }
-            } else {
-                echo 'Upload failed. Allowed file types: ' . implode(',', $allowedfileExtensions);
-                exit();
+    // Ensure Uploaded_Images folder exists
+    $uploadedDir = __DIR__ . '/Uploaded_Images/';
+    if (!is_dir($uploadedDir)) {
+        if (!mkdir($uploadedDir, 0755, true)) {
+            echo 'Error: Unable to create Uploaded_Images folder. Check permissions.';
+            exit();
+        }
+    }
+
+    // Resolve final filename (avoid overwrite by appending _1, _2, etc.)
+    $finalName = $candidateName;
+    $i = 1;
+    while (file_exists($uploadedDir . $finalName)) {
+        $finalName = $baseName . '_' . $i . '.' . $fileExtension;
+        $i++;
+    }
+    $uploadedFullPath = $uploadedDir . $finalName;
+
+    // Move uploaded file into Uploaded_Images
+    if (!move_uploaded_file($fileTmpPath, $uploadedFullPath)) {
+        echo 'Error: Failed to move uploaded file to Uploaded_Images.';
+        exit();
+    }
+
+    // New image URL to store in DB (use forward slash for web)
+    $image_url = 'Uploaded_Images/' . $finalName;
+
+    // Delete old image from Uploaded_Images if it exists and points to Uploaded_Images/
+    if (!empty($product['image_url'])) {
+        // Normalize backslashes to forward slashes
+        $oldDbPath = str_replace('\\', '/', $product['image_url']);
+        // Only delete if old path is inside Uploaded_Images (safety)
+        if (strpos($oldDbPath, 'Uploaded_Images/') === 0) {
+            $oldFullPath = __DIR__ . '/' . $oldDbPath;
+            if (file_exists($oldFullPath)) {
+                // Suppress warning in case of race condition, but you can check return value if you want
+                @unlink($oldFullPath);
             }
-        } else {
-             $image_url = $product['image_url'];
-        } 
+        }
+    }
+} else {
+    // No new image uploaded — keep existing image path
+    $image_url = $product['image_url'];
+}
+
+
+
+            
 
         
-     // Update students table
+     // Update table
     $stmt = $pdo->prepare("UPDATE rims SET rim_name = ?, model = ?, size_inch = ?, bolt_pattern = ?, 
                           offset = ?, center_bore = ?, color = ?, price = ?, quantity = ?, image_url = ? WHERE rim_id = ?");
         $stmt->execute([$wheel_name, $wheel_model, $size_inch, $bolt_pattern, $offset, $center_bore, $color, $price, $stock_quantity, $image_url, $rim_id]);
 
         echo  '<script>
          alert("Wheel updated successfully!");
+         window.location.href = "inventory_dashboard.php";
         </script>';
 
      } else {
