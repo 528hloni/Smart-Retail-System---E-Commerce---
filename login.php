@@ -26,50 +26,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             //if matching user is found then compare passwords(input and database)
             if ($user) {
 
+                if (password_verify($password, $user['password_hash'])) {
+        // Redirect based on role
+        $role = $user['role'];
+
+        $_SESSION['email'] = $user['email'];
+        $_SESSION['role'] = $role;
+        $_SESSION['loggedin'] = true;
+
+        if ($role === 'Sales Associate') {
+            header('Location: sa_dashboard.php'); // update to your actual dashboard
+            exit();
+        } elseif ($role === 'Inventory Manager') {
+            header('Location: im_dashboard.php');
+            exit();
+        } elseif ($role === 'Payment Processor') {
+            header('Location: pp_dashboard.php');
+            exit();
+        } elseif ($role === 'Customer') {
+            header('Location: products.php?user_id=' . $user['user_id']);
+            exit();
+        }
+
                 
 
-                //redirects user based on their role
-                if ($password == $user['password']) {    
-
-                    if ($role == ('Sales Associate')){
-                         $_SESSION['email'] = $user['email'];
-                         $_SESSION['role'] = $user['role'];
-                         $_SESSION['loggedin'] = true;
-                       //   header('Location: dashboard.php');
-                          exit();
-                       }
-
-                    elseif ($role == ('Inventory Manager')){
-                         $_SESSION['email'] = $user['email'];
-                         $_SESSION['role'] = $user['role'];
-                         $_SESSION['loggedin'] = true;
-                       //   header('Location: dashboard.php');
-                          exit();
-                       }
-
-                    elseif ($role == ('Payment Processor')){
-                         $_SESSION['email'] = $user['email'];
-                         $_SESSION['role'] = $user['role'];
-                         $_SESSION['loggedin'] = true;
-                       //   header('Location: dashboard.php');
-                          exit();
-                       }   
-                       
-                    elseif ($role == ('Customer')){
-                   
-                        $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
-                        $stmt->execute([$email]);
-                        $customer = $stmt->fetch(PDO::FETCH_ASSOC);
-                        $customer = $customer['user_id'];
-
-
-
-                $_SESSION['email'] = $user['email'];
-                $_SESSION['role'] = $user['role'];
-                $_SESSION['loggedin'] = true;
-                  //       header('Location: profile.php?student_id=' . $student_id);
-                        exit();
-                    }
 
                 }else{ //alert if password is incorrect
                     echo '<script>  

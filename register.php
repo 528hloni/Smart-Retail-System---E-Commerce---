@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     
     if ($action === 'Create Account' && $name && $surname && $identity_number && $date_of_birth && $email && $phone && $hashed_password) {
 
-        $stmt = $pdo->prepare("INSERT INTO users (name,surname,identity_number,date_of_birth,email,phone,password_hash,role) VALUES (?,?,?,?,?,?,?,?)");
+        $stmt = $pdo->prepare("INSERT INTO users (name,surname,id_number,date_of_birth,email,phone,password_hash,role) VALUES (?,?,?,?,?,?,?,?)");
         $stmt->execute([$name,$surname,$identity_number,$date_of_birth,$email,$phone,$hashed_password,$role]);
 
          echo  '<script>
