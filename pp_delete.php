@@ -2,6 +2,12 @@
 include('connection.php');
 session_start();
 
+// Session check
+if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Payment Processor'){
+    header("Location: login.php");
+    exit();
+}
+
 try {
     if (isset($_GET['payment_id'])) {
         $payment_id = intval($_GET['payment_id']); // sanitize input

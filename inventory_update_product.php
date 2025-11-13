@@ -4,10 +4,10 @@
 session_start();
 
 //session check: only admin is allowed here
-//if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Inventory Manager') {
-//    header("Location: login.php");
-//    exit();
-//}
+if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Inventory Manager') {
+    header("Location: login.php");
+    exit();
+}
 
 
 

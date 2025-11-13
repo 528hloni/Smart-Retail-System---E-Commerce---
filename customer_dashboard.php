@@ -107,6 +107,12 @@ if (isset($_GET['user_id']) && is_numeric($_GET['user_id'])) {
 </header>
 
 <body>
+
+
+
+
+
+
 <div class="container">
   <a href="products.php?user_id=<?= urlencode($user_id) ?>" class="card"> Browse Products</a>
   <a href="c_order_history.php?user_id=<?= urlencode($user_id) ?>" class="card"> My Order History</a>

@@ -3,10 +3,10 @@ include('connection.php');
 session_start();
 
 // Session check
-//if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Payment Processor'){
-//    header("Location: login.php");
-//    exit();
-//}
+if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Payment Processor'){
+    header("Location: login.php");
+    exit();
+}
 
 if (!isset($_GET['payment_id']) || !is_numeric($_GET['payment_id'])) {
     echo "Invalid request.";

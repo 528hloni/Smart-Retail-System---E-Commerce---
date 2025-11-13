@@ -3,10 +3,10 @@ include('connection.php');
 session_start();
 
 //session check: only admin allowed
-//if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Inventory Manager') {
-//    header("Location: login.php");
-//    exit();
-//}
+if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Inventory Manager') {
+    header("Location: login.php");
+    exit();
+}
 
 try {
     //check if ID is passed

@@ -38,6 +38,22 @@ if (isset($_GET['rim_id']) && is_numeric($_GET['rim_id']) && isset($_GET['user_i
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     $action = $_POST['action'];
+
+    if ($action ==='Return Dashboard'){
+    
+        header('Location: inventory_dashboard.php?user_id=' . $user_id);
+        exit();
+    }
+
+    if ($action ==='Logout'){
+    
+        header('Location: login.php');
+        exit();
+        session_destroy();
+    }
+
+
+
     if ($action ==='ADD TO CART'){
 
         $quantity = intval($_POST['quantity']); // Get quantity from form
@@ -74,6 +90,9 @@ echo '<script>
 
 
 
+
+
+
 ?>
 
 
@@ -85,6 +104,15 @@ echo '<script>
     <title>Document</title>
 </head>
 <body>
+
+
+
+
+
+
+
+
+
     <img src="<?= $product['image_url'] ?>" alt="<?= $product['rim_name'] ?>"> 
     <br>
     <h3><?= $product['rim_name'] ?></h3>
@@ -119,6 +147,11 @@ echo '<script>
     <input type="submit" name="action" value="ADD TO CART">
 <?php endif; ?>
 
+<?php if ($role === 'Inventory Manager'): ?>
+<form method="POST">
+    <input type="submit" name="action" value="Return Dashboard">
+</form>
+<?php endif; ?>
 
 
 

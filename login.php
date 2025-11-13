@@ -4,12 +4,14 @@ session_start();
 
 
 
-
 //user input
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     $action = $_POST['action'];
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     $password = trim($_POST['password']??'');
+
+    
+
    
 
     try{
@@ -21,7 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             $stmt->execute([$email]);
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-           
+
+
+
 
             //if matching user is found then compare passwords(input and database)
             if ($user) {
@@ -29,19 +33,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
                 if (password_verify($password, $user['password_hash'])) {
         // Redirect based on role
         $role = $user['role'];
-
+       
+       // $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['email'] = $user['email'];
         $_SESSION['role'] = $role;
         $_SESSION['loggedin'] = true;
 
         if ($role === 'Sales Associate') {
-            header('Location: sa_dashboard.php'); // update to your actual dashboard
+            header('Location: sales_associate_dashboard.php'); 
             exit();
         } elseif ($role === 'Inventory Manager') {
-            header('Location: im_dashboard.php');
-            exit();
+            header('Location: inventory_dashboard.php?user_id=' . $user['user_id']);
+           exit();
         } elseif ($role === 'Payment Processor') {
-            header('Location: pp_dashboard.php');
+            header('Location: payment_processor_dashboard.php');
             exit();
         } elseif ($role === 'Customer') {
             header('Location: customer_dashboard.php?user_id=' . $user['user_id']);

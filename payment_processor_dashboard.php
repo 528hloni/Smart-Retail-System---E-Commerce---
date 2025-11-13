@@ -3,10 +3,10 @@ include('connection.php');
 session_start();
 
 //session check: only admin is allowed here
-//if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Payment Processor') {
-//    header("Location: login.php");
-//    exit();
-//}
+if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Payment Processor') {
+    header("Location: login.php");
+    exit();
+}
 
 
 try{

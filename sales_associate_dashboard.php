@@ -3,10 +3,11 @@ include('connection.php');
 session_start();
 
 //session check: only admin is allowed here
-//if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Inventory Manager') {
-//    header("Location: login.php");
-//    exit();
-//}
+if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Sales Associate') {
+    header("Location: login.php");
+    exit();
+}
+
 
 
 try {
@@ -111,6 +112,15 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </style>
 </head>
 <body>
+
+
+
+
+
+
+
+
+
     <h1>Sales Associate Dashboard</h1>
     <br><br>
     <h3>Total Sales this month</h3>  <p> <?=htmlentities($month_sales) ?> </p>

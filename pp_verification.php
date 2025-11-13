@@ -3,10 +3,10 @@ include('connection.php');
 session_start();
 
 // Session check
-//if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Payment Processor'){
-//    header("Location: login.php");
-//    exit();
-//}
+if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Payment Processor'){
+    header("Location: login.php");
+    exit();
+}
 
 // Determine which screen to show
 $page = isset($_GET['page']) ? $_GET['page'] : 'verify';
@@ -98,9 +98,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     <br>
     
     
-    <a href="pp_delete.php?id=<?php echo $row['payment_id']; // attaches the payment ID?>"  
-                onclick="return confirm('Are you sure you want to delete this payment?');">
-                Delete Pending Payment</a>
+
+    <a href="pp_delete.php?payment_id=<?= htmlentities($_GET['payment_id']) ?>"  
+   onclick="return confirm('Are you sure you want to delete this payment?');">
+   Delete Pending Payment
+</a>            
     
     <a href="payment_processor_dashboard.php">Back to Home</a>
 

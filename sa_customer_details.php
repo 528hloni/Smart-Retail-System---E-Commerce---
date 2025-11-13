@@ -4,10 +4,10 @@
 session_start();
 
 
-//if (!isset($_SESSION['loggedin']) || ($_SESSION['role'] !== 'Administrator' && $_SESSION['role'] !== 'Student')) {
-//    header("Location: login.php");
-//    exit();
-//}
+if (!isset($_SESSION['loggedin']) || ($_SESSION['role'] !== 'Administrator' && $_SESSION['role'] !== 'Sales Associate')) {
+    header("Location: login.php");
+    exit();
+}
 
 try{
 
@@ -32,7 +32,7 @@ if (isset($_GET['user_id']) && is_numeric($_GET['user_id'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     $action = $_POST['action'];
     if ($action ==='Return Dashboard'){
-        session_destroy();
+        
         header('Location: sales_associate_dashboard.php');
         exit();
     }

@@ -3,10 +3,10 @@ include('connection.php');
 session_start();
 
 //session check
-//if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Inventory Manager') {
-//    header("Location: login.php");
-//    exit();
-//}
+if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Inventory Manager') {
+    header("Location: login.php");
+    exit();
+}
 try{
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {

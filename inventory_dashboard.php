@@ -3,12 +3,22 @@ include('connection.php');
 session_start();
 
 //session check: only admin is allowed here
-//if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Inventory Manager') {
-//    header("Location: login.php");
-//    exit();
-//}
+if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Inventory Manager' ) {
+    header("Location: login.php");
+    exit();
+}
+
+
+
+
+
 
 try{
+
+    //Getting user_id from URL and validating it (using GET method)
+if (isset($_GET['user_id']) && is_numeric($_GET['user_id'])) {
+    $user_id = trim($_GET['user_id']);
+
     // fetch data to display in table
 $stmt = $pdo->prepare("
     SELECT rim_id, rim_name, model, size_inch, price, quantity, image_url
@@ -32,6 +42,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         header('Location: login.php');
         exit();
     }
+    }
+    } else {
+    echo "Invalid request.";
+    exit();
     }
 } catch (Exception $e) {
     // Handle general errors
@@ -97,15 +111,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
                 <?php echo htmlentities($row['quantity']); ?>
             </td>
             <td>
-                <a href="product_details.php?rim_id=<?= $row['rim_id'] ?>">View</a> | 
-                <a href="inventory_update_product.php?rim_id=<?= $row['rim_id'] ?>">Update</a> | 
-                
-                <a href="inventory_delete_product.php?id=<?php echo $row['rim_id']; // attaches the Rim ID?>"  
-                onclick="return confirm('Are you sure you want to delete this wheel?');">
-                Delete</a>
-
-                       
-            </td>
+         
+        <a href="product_details.php?rim_id=<?= $row['rim_id'] ?>&user_id=<?= $user_id ?>">View</a>  |
+        <a href="<?php echo 'inventory_update_product.php?rim_id=' . $row['rim_id']; ?>">Update</a> | 
+        <a href="<?php echo 'inventory_delete_product.php?id=' . $row['rim_id']; ?>" 
+           onclick="return confirm('Are you sure you want to delete this wheel?');">Delete</a>
+    </td>
         </tr>
         <?php endforeach; ?>
     </tbody>
