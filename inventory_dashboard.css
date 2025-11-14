@@ -1,0 +1,217 @@
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 20px;
+    color: #111;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ff1a1a;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+/* ===============================
+   NAVBAR
+   =============================== */
+.navbar {
+    background: linear-gradient(90deg, #000000, #1a0000);
+    padding: 15px 0;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid #ff1a1a;
+}
+
+.nav-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    color: #ff1a1a;
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+    cursor: default; /* or pointer if you want it to feel clickable */
+}
+
+.nav-logo:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #ff1a1a;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li a {
+    color: #fff;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ff1a1a;
+    text-shadow: 0 0 5px #ff1a1a;
+}
+
+.nav-links li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff1a1a;
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* ===============================
+   CONTAINER / FORM
+   =============================== */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 15px;
+}
+
+form input[type="submit"], form input[type="text"] {
+    padding: 10px;
+    margin: 5px 10px 15px 0;
+    border-radius: 6px;
+    border: 1px solid #ff1a1a;
+    font-size: 14px;
+}
+
+form input[type="submit"] {
+    background-color: #ff1a1a;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #cc0000;
+}
+
+/* ===============================
+   INVENTORY TABLE
+   =============================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    color: #111;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+th {
+    background-color: #ff1a1a;
+    color: #fff;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+tr:hover {
+    background-color: #ffe5e5;
+}
+
+table img {
+    border-radius: 6px;
+    width: 100px;
+    height: auto;
+}
+
+/* ===============================
+   TABLE ACTION LINKS
+   =============================== */
+table a {
+    color: #ff1a1a;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+table a:hover {
+    color: #fff;
+    text-shadow: 0 0 5px #ff1a1a;
+}
+
+/* ===============================
+   AUTOCOMPLETE SUGGESTION BOX
+   =============================== */
+#search_input + div {
+    border: 1px solid #ff1a1a;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+    position: absolute;
+    background: #fff;
+    color: #111;
+    z-index: 100;
+    width: 220px;
+    border-radius: 6px;
+}
+
+#search_input + div div {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#search_input + div div:hover {
+    background: #ffcccc;
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+   =============================== */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    table, .container {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    form input[type="text"], form input[type="submit"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

@@ -67,19 +67,16 @@ try {
 <!DOCTYPE html>
 <html>
 <head>
+    <nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">Wheels Of Fortune</div>
+        <ul class="nav-links">
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+    </div>
+</nav>
     <title>Stock Verification</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        table { width: 90%; border-collapse: collapse; margin: 20px auto; }
-        th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
-        th { background: #333; color: #fff; }
-        tr.out { background: #ffe6e6; }
-        .center { text-align: center; }
-        button { padding: 10px 16px; margin: 10px; border: none; border-radius: 6px; cursor: pointer; }
-        .btn-yes { background: #2ecc71; color: #fff; }
-        .btn-no { background: #e74c3c; color: #fff; }
-        button:disabled { background: #aaa; cursor: not-allowed; }
-    </style>
+     <link rel="stylesheet" href="pp_stock_check.css">
 </head>
 <body>
 
@@ -119,8 +116,10 @@ try {
     </form>
 </div>
 
+
+
 <div class="center">
-    <a href="payment_processor_dashboard.php">Return to Dashboard</a>
+    <a class="return-link" href="payment_processor_dashboard.php">Return to Dashboard</a>
 </div>
 
 </body>

@@ -67,6 +67,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         exit();
     }
 
+    if ($action === 'Back To Dashboard') {
+        
+
+        header('Location: payment_processor_dashboard.php'); // another file
+        exit();
+    }
+
    
 }
 ?>
@@ -75,10 +82,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 <html>
 <head>
     <title>Payment Verification</title>
+    <link rel="stylesheet" href="pp_verification.css">
 </head>
 <body>
+    <nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            Wheels Of Fortune
+        </div>
+        <ul class="nav-links">
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+    </div>
+</nav>
 
 <?php if ($page === 'verify'): ?>
+    <div class="container">
     <h1>Verification</h1>
     <p>Payment ID: <?= htmlentities($payment['payment_id']) ?></p>
     <p>Customer: <?= htmlentities($payment['customer']) ?></p>
@@ -90,21 +109,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         
         <input type="submit" name="action" value="No-Failed">
         <input type="submit" name="action" value="Yes-Received">
+        <input type="submit" name="action" value="Back To Dashboard">
+</div>
     </form>
 
 <?php elseif ($page === 'failed'): ?>
+    <div class="container">
     <h1>Payment Failed</h1>
     <p>This payment (ID <?= htmlentities($_GET['payment_id']) ?>)  should be deleted after 48 hours of funds not reflecting on business account.</p>
     <br>
     
     
+   <div class="link-buttons">
+    <a href="pp_delete.php?payment_id=<?= htmlentities($_GET['payment_id']) ?>"
+       onclick="return confirm('Are you sure you want to delete this payment?');">
+       Delete Pending Payment
+    </a>
 
-    <a href="pp_delete.php?payment_id=<?= htmlentities($_GET['payment_id']) ?>"  
-   onclick="return confirm('Are you sure you want to delete this payment?');">
-   Delete Pending Payment
-</a>            
-    
-    <a href="payment_processor_dashboard.php">Back to Home</a>
+    <a href="payment_processor_dashboard.php">
+        Back to Home
+    </a>
+</div>
+</div>
+
 
 
 
@@ -114,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     <h1>Unknown page</h1>
    
     <a href="payment_processor_dashboard.php">Back to Home</a>
-
+</div>
 <?php endif; ?>
 
 </body>

@@ -1,0 +1,302 @@
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    background-color: #fff; /* white background */
+    margin: 0;
+    padding: 20px;
+    color: #111;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 32px;
+    color: #ff1a1a;
+    margin-bottom: 40px;
+}
+
+/* ===============================
+   SALES STAT CARDS
+   =============================== */
+.sales-stats {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.sales-card {
+    background-color: #ff1a1a;
+    color: #fff;
+    border-radius: 12px;
+    padding: 20px 30px;
+    text-align: center;
+    min-width: 200px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sales-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.sales-card p {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* ===============================
+   TOP RIMS
+   =============================== */
+.top-products {
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.top-rims-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.rim-card {
+    border: 2px solid #ff1a1a;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    border-radius: 12px;
+    background-color: #fff;
+    color: #111;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rim-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 26, 26, 0.4);
+}
+
+.rim-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+/* ===============================
+   ORDERS FORM
+   =============================== */
+form {
+    max-width: 1200px;
+    margin: 30px auto;
+    position: relative;
+}
+
+#search_input, #filter, input[type="submit"] {
+    padding: 10px;
+    margin: 5px 10px 15px 0;
+    border-radius: 6px;
+    border: 1px solid #ff1a1a;
+    font-size: 14px;
+}
+
+#search_input, #filter {
+    width: 200px;
+}
+
+input[type="submit"] {
+    background-color: #ff1a1a;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #cc0000;
+}
+
+/* ===============================
+   ORDERS TABLE
+   =============================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: #fff;
+    color: #111;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #ff1a1a;
+    color: #fff;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+tr:hover {
+    background-color: #ffe5e5;
+}
+
+/* ===============================
+   AUTOCOMPLETE
+   =============================== */
+#autocomplete-results {
+    border: 1px solid #ff1a1a;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+    position: absolute;
+    background: #fff;
+    color: #111;
+    z-index: 100;
+    width: 220px;
+    border-radius: 6px;
+}
+
+.autocomplete-item {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.autocomplete-item:hover {
+    background: #ffcccc;
+}
+
+/* ===============================
+   PAGINATION
+   =============================== */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 5px;
+}
+
+.pagination button {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ff1a1a;
+    background-color: #111;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.pagination button:hover {
+    background-color: #ff1a1a;
+    color: #fff;
+}
+
+.pagination button.active {
+    background-color: #ff1a1a;
+    color: #fff;
+}
+
+.pagination button.disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+   =============================== */
+@media (max-width: 768px) {
+    .sales-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .top-rims-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #autocomplete-results {
+        width: 100%;
+    }
+
+    #search_input, #filter {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+.navbar {
+    background: linear-gradient(90deg, #000000, #1a0000);
+    padding: 15px 0;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid #ff1a1a;
+}
+
+.nav-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    color: #ff1a1a;
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+    cursor: default; /* or pointer if you want it to feel clickable */
+}
+
+.nav-logo:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #ff1a1a;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li a {
+    color: #fff;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ff1a1a;
+    text-shadow: 0 0 5px #ff1a1a;
+}
+
+.nav-links li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff1a1a;
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}

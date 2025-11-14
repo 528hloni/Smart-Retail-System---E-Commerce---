@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 
         echo  '<script>
          alert("Wheel updated successfully!");
-         window.location.href = "inventory_dashboard.php";
+         
         </script>';
 
      } else {
@@ -139,7 +139,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         }
 
         if($action === 'Return To Dashboard'){
-     header('Location: inventory_dashboard.php');
+     
+      header('Location: inventory_dashboard.php?user_id=' . urlencode($_GET['user_id']));
+     
         exit();
 }    
 
@@ -163,9 +165,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inventory Update Product</title>
+    <link rel="stylesheet" href="inventory_update_product.css">
 </head>
 <body>
+    <nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            Wheels Of Fortune
+        </div>
+        <ul class="nav-links">
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+    </div>
+</nav>
     <h1> Update Wheel Information </h1>
     <br><br>
     <form method="POST" enctype="multipart/form-data">

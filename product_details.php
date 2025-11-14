@@ -39,9 +39,16 @@ if (isset($_GET['rim_id']) && is_numeric($_GET['rim_id']) && isset($_GET['user_i
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     $action = $_POST['action'];
 
-    if ($action ==='Return Dashboard'){
+    if ($action ==='Return To Dashboard'){
     
         header('Location: inventory_dashboard.php?user_id=' . $user_id);
+        exit();
+    }
+
+    if ($action ==='Return'){
+    
+        header('Location: products.php?user_id=' . $user_id);
+       
         exit();
     }
 
@@ -101,61 +108,83 @@ echo '<script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Product Details</title>
+    <link rel="stylesheet" href="product_details.css">
 </head>
 <body>
 
 
-
-
-
-
-
-
-
-    <img src="<?= $product['image_url'] ?>" alt="<?= $product['rim_name'] ?>"> 
-    <br>
-    <h3><?= $product['rim_name'] ?></h3>
-    <p><strong> <?= $product['model'] ?> </strong> </p>
-    <br>
-    <p class="price">R<?= number_format($product['price'], 2) ?></p>
-    <h4>Specifications:</h4>
-    <br>
-    <p><strong>Size:</strong> <?= $product['size_inch'] ?> inch </p>
-    <p><strong>Color:</strong> <?= $product['color'] ?> </p>
-    <br>
-    <p><strong>Bolt Pattern:</strong> <?= $product['bolt_pattern'] ?> </p>
-    <p><strong>Offset:</strong> <?= $product['offset'] ?> </p>
-    <br>
-    <p><strong>Center Bore:</strong> <?= $product['center_bore'] ?> </p>
-    <br>
-    
-
-<?php if ($role === 'Customer'): ?>
-<form method="POST">
-
-<div class="quantity-container">
-    <label for="quantity">Quantity:</label>
-    <div class="quantity-box">
-        <button type="button" class="qty-btn" id="decrease">−</button>
-        <input type="text" id="quantity" name="quantity" value="1" readonly>
-        <button type="button" class="qty-btn" id="increase">+</button>
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <a href="customer_dashboard.php?user_id=<?= $user_id ?>">Wheels of Fortune</a>
+        </div>
+        <?php if ($role === 'Customer'): ?>
+        <ul class="nav-links">
+            <li><a href="customer_dashboard.php?user_id=<?= $user_id ?>">Dashboard</a></li>
+            <li><a href="products.php?user_id=<?= $user_id ?>">Shop</a></li>
+            <li><a href="c_cart.php?user_id=<?= $user_id ?>">Cart</a></li>
+            <li><a href="c_order_history.php?user_id=<?= $user_id ?>">My Orders</a></li>
+          
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+     <?php endif; ?>
     </div>
+</nav>
+
+
+<div class="product-container">
+
+    
+
+        <?php if ($role === 'Customer'): ?>
+        <form method="POST" class="inline-form">
+            <input type="submit" name="action" value="Return">
+        </form>
+        <?php endif; ?>
+
+        <?php if ($role === 'Inventory Manager'): ?>
+        <form method="POST" class="inline-form">
+            <input type="submit" name="action" value="Return To Dashboard">
+        </form>
+        <?php endif; ?>
+    </div>
+
+    
+    <div class="product-image">
+        <img src="<?= $product['image_url'] ?>" alt="<?= $product['rim_name'] ?>"> 
+    </div>
+
+    
+    <div class="product-info">
+        <h3><?= $product['rim_name'] ?></h3>
+        <p><strong><?= $product['model'] ?></strong></p>
+        <p class="price">R<?= number_format($product['price'], 2) ?></p>
+        
+        <h4>Specifications:</h4>
+        <p><strong>Size:</strong> <?= $product['size_inch'] ?> inch</p>
+        <p><strong>Color:</strong> <?= $product['color'] ?></p>
+        <p><strong>Bolt Pattern:</strong> <?= $product['bolt_pattern'] ?></p>
+        <p><strong>Offset:</strong> <?= $product['offset'] ?></p>
+        <p><strong>Center Bore:</strong> <?= $product['center_bore'] ?></p>
+    </div>
+
+    
+    <?php if ($role === 'Customer'): ?>
+    <form method="POST" class="add-to-cart-form">
+        <div class="quantity-container">
+            <label for="quantity">Quantity:</label>
+            <div class="quantity-box">
+                <button type="button" class="qty-btn" id="decrease">−</button>
+                <input type="text" id="quantity" name="quantity" value="1" readonly>
+                <button type="button" class="qty-btn" id="increase">+</button>
+            </div>
+        </div>
+        <input type="submit" name="action" value="ADD TO CART">
+    </form>
+    <?php endif; ?>
+
 </div>
-    
-    
-    <input type="submit" name="action" value="ADD TO CART">
-<?php endif; ?>
-
-<?php if ($role === 'Inventory Manager'): ?>
-<form method="POST">
-    <input type="submit" name="action" value="Return Dashboard">
-</form>
-<?php endif; ?>
-
-
-
-
 
 <script>
 const decreaseBtn = document.getElementById('decrease');
@@ -164,9 +193,7 @@ const quantityInput = document.getElementById('quantity');
 
 decreaseBtn.addEventListener('click', () => {
     let value = parseInt(quantityInput.value);
-    if (value > 1) {
-        quantityInput.value = value - 1;
-    }
+    if (value > 1) quantityInput.value = value - 1;
 });
 
 increaseBtn.addEventListener('click', () => {
@@ -174,5 +201,6 @@ increaseBtn.addEventListener('click', () => {
     quantityInput.value = value + 1;
 });
 </script>
+
 </body>
 </html>

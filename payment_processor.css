@@ -1,0 +1,155 @@
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    background-color: #fff;
+    color: #111;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 32px;
+    color: #ff1a1a;
+    margin-bottom: 30px;
+}
+
+
+.navbar {
+    background: linear-gradient(90deg, #000000, #1a0000);
+    padding: 15px 0;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid #ff1a1a;
+}
+
+.nav-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    color: #ff1a1a;
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+    cursor: default; /* or pointer if you want it to feel clickable */
+}
+
+.nav-logo:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #ff1a1a;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li a {
+    color: #fff;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ff1a1a;
+    text-shadow: 0 0 5px #ff1a1a;
+}
+
+.nav-links li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff1a1a;
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* ===============================
+   TABLE STYLING
+   =============================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+thead {
+    background-color: #ff1a1a;
+    color: #fff;
+}
+
+thead th {
+    padding: 12px 10px;
+    text-align: left;
+}
+
+tbody tr {
+    border-bottom: 1px solid #ccc;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody td {
+    padding: 10px;
+}
+
+tbody td a {
+    color: #ff1a1a;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+tbody td a:hover {
+    text-decoration: underline;
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+   =============================== */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 5px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    tbody td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #111;
+    }
+}

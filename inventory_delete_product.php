@@ -10,8 +10,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Inventory Manager') 
 
 try {
     //check if ID is passed
-    if (isset($_GET['id'])) {
-        $id = intval($_GET['id']); // sanitize input
+ 
+
+        if (isset($_GET['rim_id']) && is_numeric($_GET['rim_id'])) {
+    $id = trim($_GET['rim_id']);
 
         //Fetch product info before deletion 
         $stmt = $pdo->prepare("SELECT * FROM rims WHERE rim_id = ?");
@@ -36,20 +38,21 @@ try {
             //Redirect with message
             echo '<script>
                 alert("Product deleted successfully!");
-                window.location.href = "inventory_dashboard.php";
-            </script>';
+                window.location.href = "inventory_dashboard.php?user_id=' . urlencode($_GET['user_id']) . '";
+                
+            </script>';                  
             exit();
 
         } else {
             echo '<script>
                 alert("Product not found");
-                window.location.href = "inventory_dashboard.php";
+                window.location.href = "inventory_dashboard.php?user_id=' . $_SESSION['user_id'] . '";
             </script>';
         }
     } else {
         echo '<script>
-            alert("Invalid request");
-            window.location.href = "inventory_dashboard.php";
+            alert("Invaliddddddddd request");
+            window.location.href = "inventory_dashboard.php?user_id=' . $_SESSION['user_id'] . '";
         </script>';
     }
 } catch (Exception $e) {

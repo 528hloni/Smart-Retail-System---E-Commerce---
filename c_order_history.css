@@ -1,0 +1,155 @@
+/* -------------------- BODY -------------------- */
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #222;
+}
+
+/* -------------------- HEADING -------------------- */
+h1 {
+    text-align: center;
+    color: #ff1a1a;
+    margin-top: 30px;
+}
+
+/* -------------------- RETURN BUTTON -------------------- */
+button.return-btn {
+    background: #ff1a1a;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 20px auto;
+    display: inline-block;
+    transition: 0.2s ease;
+}
+
+button.return-btn:hover {
+    background: #cc0000;
+}
+
+/* -------------------- ORDERS CONTAINER -------------------- */
+.orders-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255,0,0,0.3);
+}
+
+/* -------------------- TABLE -------------------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #ff1a1a;
+    color: #fff;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* -------------------- STATUS COLORS -------------------- */
+.status-pending { color: orange; font-weight: bold; }
+.status-completed { color: green; font-weight: bold; }
+.status-cancelled { color: red; font-weight: bold; }
+
+.payment-unpaid { color: orange; }
+.payment-paid { color: green; }
+.payment-refunded { color: red; }
+
+/* -------------------- EMPTY ORDERS -------------------- */
+.empty-orders {
+    text-align: center;
+    margin-top: 40px;
+    color: #555;
+}
+
+.empty-orders a {
+    color: #ff1a1a;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.empty-orders a:hover {
+    text-decoration: underline;
+}
+
+.navbar {
+    background: linear-gradient(90deg, #000000, #1a0000);
+    padding: 15px 0;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid #ff1a1a;
+}
+
+.nav-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo a {
+    color: #ff1a1a;
+    font-size: 26px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+}
+
+.nav-logo a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #ff1a1a;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li a {
+    color: #fff;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ff1a1a;
+    text-shadow: 0 0 5px #ff1a1a;
+}
+
+.nav-links li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff1a1a;
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}

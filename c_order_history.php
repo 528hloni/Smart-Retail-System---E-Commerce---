@@ -36,58 +36,34 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Orders</title>
-    <style>
-        body {
-            font-family: "Poppins", sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        h1 {
-            text-align: center;
-            color: #ff1a1a;
-            margin-top: 30px;
-        }
-        .orders-container {
-            width: 90%;
-            max-width: 1000px;
-            margin: 30px auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(255,0,0,0.3);
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #ddd;
-            text-align: left;
-        }
-        th {
-            background-color: #ff1a1a;
-            color: #fff;
-        }
-        tr:hover {
-            background-color: #f1f1f1;
-        }
-        .status-pending { color: orange; font-weight: bold; }
-        .status-completed { color: green; font-weight: bold; }
-        .status-cancelled { color: red; font-weight: bold; }
-        .payment-unpaid { color: orange; }
-        .payment-paid { color: green; }
-        .payment-refunded { color: red; }
-        .empty-orders {
-            text-align: center;
-            margin-top: 40px;
-            color: #555;
-        }
-        
-    </style>
+    <link rel="stylesheet" href="c_order_history.css">
+    
 </head>
 <body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <a href="customer_dashboard.php?user_id=<?= $user_id ?>">Wheels of Fortune</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="customer_dashboard.php?user_id=<?= $user_id ?>">Dashboard</a></li>
+            <li><a href="products.php?user_id=<?= $user_id ?>">Shop</a></li>
+            <li><a href="c_cart.php?user_id=<?= $user_id ?>">Cart</a></li>
+            <li><a href="c_order_history.php?user_id=<?= $user_id ?>">My Orders</a></li>
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <a href="customer_dashboard.php?user_id=<?= $user_id ?>">
+    <button type="button" class="return-btn"> Return</button>
+</a>
+
+
+
+
+
     <h1>My Order History</h1>
     <div class="orders-container">
         <?php if(count($orders) > 0): ?>

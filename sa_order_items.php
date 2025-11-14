@@ -58,9 +58,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sales: Order Items</title>
+    <link rel="stylesheet" href="sa_order_items.css">
 </head>
 <body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">Wheels Of Fortune</div>
+        <ul class="nav-links">
+            <li><a href="sales_associate_dashboard.php">Dashboard</a></li>
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+    </div>
+</nav>
 
 
 <h1>Order Items for Order <?= htmlentities($order_id) ?></h1>

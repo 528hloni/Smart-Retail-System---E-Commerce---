@@ -105,16 +105,23 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-.hide { display: none; }
-.autocomplete-item { padding: 5px; cursor: pointer; }
-.autocomplete-item:hover { background: #eee; }
-</style>
+    <link rel="stylesheet" href="sales_associate_dashboard.css">
+    
 </head>
 <body>
 
-
-
+ <nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            Wheels Of Fortune
+        </div>
+        <ul class="nav-links">
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+<br>
+<br>
 
 
 
@@ -123,18 +130,33 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <h1>Sales Associate Dashboard</h1>
     <br><br>
-    <h3>Total Sales this month</h3>  <p> <?=htmlentities($month_sales) ?> </p>
-    <h3>Total Sales this week</h3> <p> <?=htmlentities($week_sales) ?> </p>
-    <h3>Total Sales today</h3> <p> <?=htmlentities($today_sales) ?> </p>
+
+    
+
+
+    <div class="sales-stats">
+    <div class="sales-card">
+        <h3>Total Sales This Month</h3>
+        <p><?= htmlentities($month_sales) ?></p>
+    </div>
+    <div class="sales-card">
+        <h3>Total Sales This Week</h3>
+        <p><?= htmlentities($week_sales) ?></p>
+    </div>
+    <div class="sales-card">
+        <h3>Total Sales Today</h3>
+        <p><?= htmlentities($today_sales) ?></p>
+    </div>
+</div>
     <br>
     <div class="top-products">
     <h2>Top 3 Selling Wheels</h2>
-    <div class="top-rims-container" style="display:flex; gap:20px; flex-wrap:wrap;">
+    <div class="top-rims-container">
         <?php if (count($top_rims) > 0): ?>
             <?php foreach ($top_rims as $rim): ?>
-                <div class="rim-card" style="border:1px solid #ccc; padding:10px; width:250px; text-align:center;">
+                <div class="rim-card">
                      
-                    <img src="<?= $rim['image_url'] ?>" alt="<?= $rim['rim_name'] ?>" style="width:100%; height:auto; margin-bottom:10px;">
+                    <img src="<?= $rim['image_url'] ?>" alt="<?= $rim['rim_name'] ?>" >
                     <h3><?= htmlentities($rim['rim_name']); ?></h3>
                     <p>Model: <?= htmlentities($rim['model']); ?></p>
                     <p>Total Sold: <?= htmlentities($rim['total_sold']); ?></p>
@@ -150,7 +172,7 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <form method="POST">
         <h3>All Orders</h3>
         <input type="text" id="search_input" name="search_input" placeholder="Search Customer...">
-        <div id="autocomplete-results" style="border:1px solid #ccc; max-height:150px; overflow-y:auto; display:none; position:absolute; background:#fff; z-index:100;"></div>
+        <div id="autocomplete-results"></div>
          <select id="filter" name="filter">
             <option value="" >All Order</option>
             <option value="Completed">Completed</option>
@@ -216,7 +238,7 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
     let currentPage = 1;
     const rowsPerPage = 10;
 
-    // --- AUTOCOMPLETE SEARCH ---
+    // JAVASCRIPT AUTOCOMPLETE SEARCH 
     searchInput.addEventListener("input", () => {
         const query = searchInput.value.toLowerCase();
         autocompleteList.innerHTML = "";
@@ -257,7 +279,7 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if (e.target !== searchInput) autocompleteList.style.display = "none";
     });
 
-    // --- FILTER ORDERS ---
+    // JAVASCRIPT FILTER ORDERS
     filterSelect.addEventListener("change", applyFilters);
 
     function applyFilters() {
@@ -282,7 +304,7 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
         displayPage();
     }
 
-    // --- PAGINATION ---
+    //  PAGINATION 
     function displayPage() {
         const visibleRows = rows.filter(row => !row.classList.contains("hide"));
         const totalPages = Math.ceil(visibleRows.length / rowsPerPage);
@@ -320,7 +342,7 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
     }
 
-    // Initialize
+    
     applyFilters();
     </script>
 

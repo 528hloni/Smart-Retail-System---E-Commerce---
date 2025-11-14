@@ -116,18 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Checkout - Wheels of Fortune</title>
-<style>
-body{font-family:Poppins,sans-serif;background:#f9f9f9;margin:0;padding:0}
-.container{max-width:500px;margin:40px auto;background:#fff;padding:25px;border-radius:10px;box-shadow:0 4px 10px rgba(255,0,0,0.2)}
-h1{text-align:center;color:#ff1a1a;margin-bottom:20px}
-label{display:block;margin-top:10px;font-weight:600}
-input{width:100%;padding:10px;margin-top:5px;border:1px solid #ddd;border-radius:5px}
-button{width:100%;padding:12px;margin-top:20px;border:none;border-radius:6px;background:#ff1a1a;color:#fff;font-size:16px;cursor:pointer}
-button:hover{background:#cc0000}
-.summary{background:#fcfcfc;padding:10px;border-radius:6px;margin-bottom:12px}
-.small{font-size:14px;color:#666}
-.message{margin-top:12px}
-</style>
+<link rel="stylesheet" href="c_checkout.css">
 </head>
 <body>
 <div class="container">
@@ -165,6 +154,8 @@ button:hover{background:#cc0000}
         <input name="cvv" required placeholder="3 or 4 digits">
 
         <button type="submit" name="place_order">Place Order (R<?= number_format($total,2) ?>)</button>
+        <button type="button" onclick="window.history.back()">← Return</button>
+
     </form>
 <?php endif; ?>
 </div>

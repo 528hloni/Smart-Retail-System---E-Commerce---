@@ -2,6 +2,7 @@
 include('connection.php');
 session_start();
 
+
 //session check: only admin is allowed here
 if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'Inventory Manager' ) {
     header("Location: login.php");
@@ -17,7 +18,12 @@ try{
 
     //Getting user_id from URL and validating it (using GET method)
 if (isset($_GET['user_id']) && is_numeric($_GET['user_id'])) {
-    $user_id = trim($_GET['user_id']);
+    $user_id = ($_GET['user_id']);
+    } else {
+    echo "Invalid request.";
+    exit();
+    }
+   
 
     // fetch data to display in table
 $stmt = $pdo->prepare("
@@ -31,22 +37,16 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     $action = $_POST['action'];
     if ($action ==='Add New Wheel'){
-        header('Location: inventory_add_product.php');
+        header('Location: inventory_add_product.php?user_id=' . urlencode($_GET['user_id']));
         exit();
+        
         
 
     }
 
-     if ($action ==='Logout'){
-        session_destroy();
-        header('Location: login.php');
-        exit();
+     
     }
-    }
-    } else {
-    echo "Invalid request.";
-    exit();
-    }
+    
 } catch (Exception $e) {
     // Handle general errors
     echo "Error: " . $e->getMessage();
@@ -66,13 +66,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inventory Dashboard</title>
+    <link rel="stylesheet" href="inventory_dashboard.css">
 </head>
 <body>
+ <nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            Wheels Of Fortune
+        </div>
+        <ul class="nav-links">
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
     <h1>Inventory Dashboard</h1>
     <br>
     <form method="POST">
-        <input type="submit" name="action" value="Logout">
+        
         <br><br>
         <input type="submit" name="action" value="Add New Wheel">
         <br><br>
@@ -113,15 +125,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             <td>
          
         <a href="product_details.php?rim_id=<?= $row['rim_id'] ?>&user_id=<?= $user_id ?>">View</a>  |
-        <a href="<?php echo 'inventory_update_product.php?rim_id=' . $row['rim_id']; ?>">Update</a> | 
-        <a href="<?php echo 'inventory_delete_product.php?id=' . $row['rim_id']; ?>" 
-           onclick="return confirm('Are you sure you want to delete this wheel?');">Delete</a>
+        <a href="<?php echo 'inventory_update_product.php?rim_id=' . $row['rim_id'] . '&user_id=' . $user_id; ?>">Update</a> |
+        <a href="<?php echo 'inventory_delete_product.php?rim_id=' . $row['rim_id'] . '&user_id=' . $user_id; ?>" 
+        onclick="return confirm('Are you sure you want to delete this wheel?');">Delete</a> |
+           
+          
     </td>
         </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
-
+        </div>
 
 
 

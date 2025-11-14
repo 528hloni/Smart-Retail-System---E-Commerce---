@@ -1,0 +1,225 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    color: #222;
+    text-align: center;
+}
+
+/* -------------------- NAVBAR -------------------- */
+.navbar {
+    background: linear-gradient(90deg, #000000, #2b0000);
+    padding: 15px 0;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.35);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid #ff1a1a;
+}
+
+.nav-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo a {
+    color: #ff1a1a;
+    font-size: 26px;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: 0.3s ease;
+}
+
+.nav-logo a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #ff1a1a;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li a {
+    color: #fff;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ff1a1a;
+    text-shadow: 0 0 5px #ff1a1a;
+}
+
+.nav-links li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff1a1a;
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* -------------------- PRODUCT CONTAINER -------------------- */
+.product-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* -------------------- ACTION BUTTONS -------------------- */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.inline-form input[type="submit"] {
+    background-color: #ff1a1a;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.inline-form input[type="submit"]:hover {
+    background-color: #d40000;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4);
+}
+
+/* -------------------- PRODUCT IMAGE -------------------- */
+.product-image img {
+    width: 100%;
+    max-width: 450px;
+    height: auto; /* keep aspect ratio, no zoom */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+/* -------------------- PRODUCT INFO -------------------- */
+.product-info h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: #d32f2f;
+}
+
+.product-info p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.product-info h4 {
+    margin: 20px 0 10px;
+    font-size: 20px;
+    color: #222;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #d32f2f;
+    margin: 10px 0;
+}
+
+/* -------------------- QUANTITY & ADD TO CART -------------------- */
+.add-to-cart-form {
+    margin-top: 20px;
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.quantity-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.qty-btn {
+    background-color: #ff1a1a;
+    color: #fff;
+    border: none;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.qty-btn:hover {
+    background-color: #d40000;
+}
+
+#quantity {
+    width: 50px;
+    height: 35px;
+    border: none;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* ADD TO CART BUTTON */
+.add-to-cart-form input[type="submit"] {
+    background-color: #ff1a1a;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.add-to-cart-form input[type="submit"]:hover {
+    background-color: #d40000;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 768px) {
+    .product-container {
+        padding: 0 10px;
+    }
+
+    .product-image img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .inline-form input[type="submit"],
+    .add-to-cart-form input[type="submit"] {
+        width: 100%;
+    }
+}

@@ -43,62 +43,10 @@ if (isset($_GET['user_id']) && is_numeric($_GET['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Customer Dashboard</title>
+    <link rel="stylesheet" href="customer_dashboard.css">
 
-    <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f7f7f7;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #222;
-      color: #fff;
-      text-align: center;
-      padding: 15px 0;
-    }
-
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      padding: 60px 20px;
-    }
-
-    .card {
-      background-color: #fff;
-      width: 260px;
-      height: 180px;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      text-decoration: none;
-      color: #333;
-      font-size: 20px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-      background-color: #ff0d00ff;
-      color: white;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 50px;
-      color: #555;
-    }
-  </style>
+    
 </head>
 
 <header>
@@ -107,6 +55,17 @@ if (isset($_GET['user_id']) && is_numeric($_GET['user_id'])) {
 </header>
 
 <body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <a href="customer_dashboard.php?user_id=<?= $user_id ?>">Wheels of Fortune</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+    </div>
+</nav>
 
 
 

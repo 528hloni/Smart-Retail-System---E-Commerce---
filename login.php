@@ -1,6 +1,6 @@
 <?php 
-include('connection.php');
 session_start();
+include('connection.php');
 
 
 
@@ -18,8 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 
 
     if ($action === 'Login' && $email && $password){ //checking if button Login was clicked and all inputs are filled
-         $sql = "SELECT * FROM users WHERE email = ?"; // query to find user with matching email
-            $stmt = $pdo->prepare($sql);
+        // $sql = "SELECT * FROM users WHERE email = ?"; // query to find user with matching email
+         $sql = "SELECT user_id, email, password_hash, role FROM users WHERE email = ?";   
+         $stmt = $pdo->prepare($sql);
             $stmt->execute([$email]);
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -34,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         // Redirect based on role
         $role = $user['role'];
        
-       // $_SESSION['user_id'] = $user['user_id'];
+       $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['email'] = $user['email'];
         $_SESSION['role'] = $role;
         $_SESSION['loggedin'] = true;
@@ -84,31 +85,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Wheels Of Fortune - Login</title>
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <h1> Wheels Of Fortune </h1>
-    <br><br>
-    <h3> Where Every Wheel Is A Win! </h3>
-    <br><br><br>
-    <form method="POST">
-        <p> Login to your account </p>
-        <br>
-        <label for="email"> Email </label>
-        <input type="email" id="email" name="email" placeholder="your@gmail.com" required>
-        <br>
-        <label for="password">Password </label>
-        <input type="password" id="password" name="password" required>
-        <br><br>
-        <input type="submit" name="action" value="Login">
-        <br>
-        <p>Do not have an account? <a href ="register.php">Register </a> </p>
-    </form>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Wheels Of Fortune</h1>
+            <h3>Where Every Wheel Is A Win!</h3>
+        </div>
+
+        <form method="POST" class="login-form">
+            <p class="form-title">Login to your account</p>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@gmail.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <input type="submit" name="action" value="Login" class="btn-login">
+
+            <p class="register-text">
+                Don’t have an account? <a href="register.php">Register</a>
+            </p>
+        </form>
+    </div>
 </body>
 </html>
