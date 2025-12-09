@@ -24,7 +24,7 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: 0.3s ease;
-    cursor: default; /* or pointer if you want it to feel clickable */
+    cursor: default;
 }
 
 .nav-logo:hover {
@@ -62,7 +62,7 @@
     width: 100%;
 }
 
-/* ---------------- PAGE GENERAL ---------------- */
+
 body {
     font-family: Arial, sans-serif;
     background: #ffffff;
@@ -77,7 +77,7 @@ h1, h3 {
     text-shadow: 0 0 4px rgba(255,0,0,0.3);
 }
 
-/* ---------------- TABLE ---------------- */
+
 table {
     width: 90%;
     border-collapse: collapse;
@@ -98,10 +98,10 @@ th {
 }
 
 tr.out {
-    background: #ffe6e6; /* light red */
+    background: #ffe6e6; 
 }
 
-/* ---------------- BUTTONS ---------------- */
+
 button {
     padding: 12px 20px;
     margin: 10px;
@@ -113,7 +113,6 @@ button {
     transition: 0.2s ease;
 }
 
-/* YES - AUTHORIZED BUTTON */
 .btn-yes {
     background: #ff1a1a;
     color: #fff;
@@ -123,7 +122,6 @@ button {
     box-shadow: 0 0 10px #ff1a1a;
 }
 
-/* NO - REFUND BUTTON */
 .btn-no {
     background: #d40d0d;
     color: #fff;
@@ -138,7 +136,6 @@ button:disabled {
     cursor: not-allowed;
 }
 
-/* ---------------- RETURN LINK ---------------- */
 .return-link {
     display: inline-block;
     margin-top: 25px;

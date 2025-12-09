@@ -1,6 +1,6 @@
 body {
     font-family: "Poppins", Arial, sans-serif;
-    background-color: #fff; /* white background */
+    background-color: #fff; 
     margin: 0;
     padding: 20px;
     color: #111;
@@ -17,9 +17,7 @@ h1 {
     margin-bottom: 40px;
 }
 
-/* ===============================
-   SALES STAT CARDS
-   =============================== */
+
 .sales-stats {
     display: flex;
     justify-content: center;
@@ -49,9 +47,7 @@ h1 {
     margin: 0;
 }
 
-/* ===============================
-   TOP RIMS
-   =============================== */
+
 .top-products {
     max-width: 1200px;
     margin: 30px auto;
@@ -88,9 +84,7 @@ h1 {
     border-radius: 8px;
 }
 
-/* ===============================
-   ORDERS FORM
-   =============================== */
+
 form {
     max-width: 1200px;
     margin: 30px auto;
@@ -121,9 +115,7 @@ input[type="submit"]:hover {
     background-color: #cc0000;
 }
 
-/* ===============================
-   ORDERS TABLE
-   =============================== */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -154,9 +146,7 @@ tr:hover {
     background-color: #ffe5e5;
 }
 
-/* ===============================
-   AUTOCOMPLETE
-   =============================== */
+
 #autocomplete-results {
     border: 1px solid #ff1a1a;
     max-height: 150px;
@@ -179,9 +169,7 @@ tr:hover {
     background: #ffcccc;
 }
 
-/* ===============================
-   PAGINATION
-   =============================== */
+
 .pagination {
     display: flex;
     justify-content: center;
@@ -214,9 +202,7 @@ tr:hover {
     cursor: default;
 }
 
-/* ===============================
-   RESPONSIVE DESIGN
-   =============================== */
+
 @media (max-width: 768px) {
     .sales-stats {
         flex-direction: column;

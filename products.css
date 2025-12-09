@@ -11,7 +11,7 @@ h1, h2, h3 {
     color: #333;
 }
 
-/* ===================== NAVBAR ===================== */
+
 .navbar {
     background: linear-gradient(90deg, #000000, #1a0000);
     padding: 15px 0;
@@ -75,7 +75,7 @@ h1, h2, h3 {
     width: 100%;
 }
 
-/* ===================== PRODUCT GRID ===================== */
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -90,7 +90,7 @@ a.product-link {
     color: inherit;
 }
 
-/* ===================== PRODUCT CARD ===================== */
+
 .product-card {
     background: white;
     border-radius: 12px;
@@ -131,7 +131,7 @@ a.product-link {
     margin-top: 5px;
 }
 
-/* ===================== RESPONSIVE ===================== */
+/* Responsive */
 @media (max-width: 768px) {
     .nav-links {
         gap: 15px;

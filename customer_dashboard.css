@@ -2,13 +2,11 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Poppins", Arial, sans-serif;
-    background-color: #ffffff; /* white background */
+    background-color: #ffffff; 
     color: #111;
 }
 
-/* ===========================================
-   NAVBAR
-   =========================================== */
+
 .navbar {
     background: linear-gradient(90deg, #000000, #3a0000);
     padding: 15px 0;
@@ -68,9 +66,7 @@ body {
     text-shadow: 0 0 5px #ff1a1a;
 }
 
-/* ===========================================
-   DASHBOARD HEADER
-   =========================================== */
+
 header {
     text-align: center;
     padding: 40px 20px 10px 20px;
@@ -80,7 +76,7 @@ header h1 {
     font-size: 30px;
     font-weight: 700;
     margin: 0;
-    color: #e60000; /* Hot Wheels red */
+    color: #e60000; 
 }
 
 header h2 {
@@ -90,9 +86,7 @@ header h2 {
     margin-top: 5px;
 }
 
-/* ===========================================
-   DASHBOARD CARDS
-   =========================================== */
+
 .container {
     width: 90%;
     margin: 40px auto;
@@ -128,9 +122,7 @@ header h2 {
     box-shadow: 0 6px 18px rgba(255, 0, 0, 0.35);
 }
 
-/* ===========================================
-   RESPONSIVE DESIGN
-   =========================================== */
+/*Responsive */
 @media (max-width: 768px) {
     .nav-logo a {
         font-size: 24px;

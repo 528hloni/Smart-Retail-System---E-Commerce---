@@ -16,9 +16,7 @@ h1 {
     font-size: 32px;
 }
 
-/* ===============================
-   NAVBAR
-   =============================== */
+
 .navbar {
     background: linear-gradient(90deg, #000000, #1a0000);
     padding: 15px 0;
@@ -44,7 +42,7 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: 0.3s ease;
-    cursor: default; /* or pointer if you want it to feel clickable */
+    cursor: default; 
 }
 
 .nav-logo:hover {
@@ -82,9 +80,7 @@ h1 {
     width: 100%;
 }
 
-/* ===============================
-   CONTAINER / FORM
-   =============================== */
+
 .container {
     max-width: 1200px;
     margin: 40px auto;
@@ -112,9 +108,6 @@ form input[type="submit"]:hover {
     background-color: #cc0000;
 }
 
-/* ===============================
-   INVENTORY TABLE
-   =============================== */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -151,9 +144,7 @@ table img {
     height: auto;
 }
 
-/* ===============================
-   TABLE ACTION LINKS
-   =============================== */
+
 table a {
     color: #ff1a1a;
     font-weight: bold;
@@ -166,9 +157,6 @@ table a:hover {
     text-shadow: 0 0 5px #ff1a1a;
 }
 
-/* ===============================
-   AUTOCOMPLETE SUGGESTION BOX
-   =============================== */
 #search_input + div {
     border: 1px solid #ff1a1a;
     max-height: 150px;
@@ -191,9 +179,7 @@ table a:hover {
     background: #ffcccc;
 }
 
-/* ===============================
-   RESPONSIVE DESIGN
-   =============================== */
+/*Responsive*/
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: column;

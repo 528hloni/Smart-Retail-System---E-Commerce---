@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background: #0d0d0d; /* deep black */
+    background: #0d0d0d; 
     color: #fff;
     display: flex;
     justify-content: center;
@@ -10,24 +10,24 @@ body {
     min-height: 100vh;
 }
 
-/* ---------- CONTAINER ---------- */
+
 .register-container {
     background-color: #1a1a1a;
     padding: 30px 25px;
     border-radius: 12px;
     width: 90%;
-    max-width: 480px; /* allows longer titles to fit */
+    max-width: 480px; 
     box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
     text-align: center;
     animation: fadeIn 0.6s ease-out;
     box-sizing: border-box;
 }
 
-/* ---------- FORM TITLE ---------- */
+
 .form-title {
-    font-size: 24px; /* slightly smaller to fit */
+    font-size: 24px; 
     font-weight: 700;
-    color: #ff0000; /* Hot Wheels Red */
+    color: #ff0000; 
     margin-bottom: 25px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -35,7 +35,7 @@ body {
     word-wrap: break-word;
 }
 
-/* ---------- INPUT GROUPS ---------- */
+
 .input-group {
     margin-bottom: 16px;
     text-align: left;
@@ -68,7 +68,7 @@ body {
     background-color: #1a1a1a;
 }
 
-/* ---------- BUTTON ---------- */
+
 .register-btn {
     width: 100%;
     background-color: #ff0000;
@@ -89,7 +89,7 @@ body {
     transform: scale(1.05);
 }
 
-/* ---------- FOOTER TEXT ---------- */
+
 .bottom-text {
     margin-top: 20px;
     font-size: 14px;
@@ -106,13 +106,13 @@ body {
     text-decoration: underline;
 }
 
-/* ---------- ANIMATION ---------- */
+/* Animation */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* Responsive */
 @media (max-width: 500px) {
     .register-container {
         padding: 25px 20px;

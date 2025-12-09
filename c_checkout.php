@@ -40,11 +40,11 @@ $order_placed = false;
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // front-end inputs (we will NOT store them)
-    $card_name   = trim($_POST['card_name']);
+    // front end inputs (we will NOT store them)
+    $card_name = trim($_POST['card_name']);
     $card_number = preg_replace('/\D/', '', $_POST['card_number']);
-    $expiry      = trim($_POST['expiry']);
-    $cvv         = trim($_POST['cvv']);
+    $expiry = trim($_POST['expiry']);
+    $cvv = trim($_POST['cvv']);
 
     $errors = [];
     if ($card_name === '') $errors[] = "Name on card is required.";

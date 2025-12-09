@@ -16,9 +16,7 @@ h1 {
     font-size: 32px;
 }
 
-/* ===============================
-   NAVBAR
-   =============================== */
+
 .navbar {
     background: linear-gradient(90deg, #000000, #1a0000);
     padding: 15px 0;
@@ -69,18 +67,14 @@ h1 {
     text-shadow: 0 0 5px #ff1a1a;
 }
 
-/* ===============================
-   CONTAINER
-   =============================== */
+
 .container {
     max-width: 1000px;
     margin: 40px auto;
     padding: 0 15px;
 }
 
-/* ===============================
-   ORDER ITEMS TABLE
-   =============================== */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -115,9 +109,7 @@ table img {
     border-radius: 6px;
 }
 
-/* ===============================
-   BUTTONS
-   =============================== */
+
 input[type="submit"] {
     background-color: #ff1a1a;
     color: #fff;
@@ -135,9 +127,7 @@ input[type="submit"]:hover {
     background-color: #cc0000;
 }
 
-/* ===============================
-   RESPONSIVE DESIGN
-   =============================== */
+/* Responsive */
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: column;

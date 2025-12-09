@@ -20,9 +20,7 @@ h2 {
     font-size: 26px;
 }
 
-/* ===============================
-   NAVBAR
-   =============================== */
+
 .navbar {
     background: linear-gradient(90deg, #000000, #1a0000);
     padding: 15px 0;
@@ -73,18 +71,14 @@ h2 {
     text-shadow: 0 0 5px #ff1a1a;
 }
 
-/* ===============================
-   CONTAINER
-   =============================== */
+
 .container {
     max-width: 1000px;
     margin: 40px auto;
     padding: 0 15px;
 }
 
-/* ===============================
-   CUSTOMER INFO CARD
-   =============================== */
+
 .customer-info {
     background-color: #ff1a1a;
     color: #fff;
@@ -100,9 +94,7 @@ h2 {
     margin: 8px 0;
 }
 
-/* ===============================
-   ORDERS TABLE
-   =============================== */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -133,9 +125,7 @@ tr:hover {
     background-color: #ffe5e5;
 }
 
-/* ===============================
-   VIEW BUTTON
-   =============================== */
+
 table a {
     color: #ff1a1a;
     text-decoration: none;
@@ -148,9 +138,7 @@ table a:hover {
     text-shadow: 0 0 5px #ff1a1a;
 }
 
-/* ===============================
-   BACK BUTTON
-   =============================== */
+
 .btn-back {
     display: inline-block;
     background-color: #ff1a1a;
@@ -166,9 +154,7 @@ table a:hover {
     background-color: #cc0000;
 }
 
-/* ===============================
-   RESPONSIVE DESIGN
-   =============================== */
+
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: column;

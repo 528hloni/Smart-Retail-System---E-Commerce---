@@ -65,7 +65,7 @@ try {
 <body>
 
 <div class="box">
-    <h1>✅ Payment Authorized Successfully</h1>
+    <h1> Payment Authorized Successfully</h1>
     <p>Payment #<?= htmlentities($payment_id) ?> has been verified and the order is now completed.</p>
     <form action="payment_processor_dashboard.php" method="get">
         <button type="submit">Return to Dashboard</button>

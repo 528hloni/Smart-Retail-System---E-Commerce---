@@ -1,4 +1,4 @@
-/* -------------------- BODY -------------------- */
+
 body {
     font-family: "Poppins", sans-serif;
     background-color: #f4f4f4;
@@ -8,14 +8,13 @@ body {
     color: #222;
 }
 
-/* -------------------- HEADING -------------------- */
 h1 {
     text-align: center;
     color: #ff1a1a;
     margin-top: 30px;
 }
 
-/* -------------------- RETURN BUTTON -------------------- */
+
 button.return-btn {
     background: #ff1a1a;
     color: #fff;
@@ -33,7 +32,6 @@ button.return-btn:hover {
     background: #cc0000;
 }
 
-/* -------------------- ORDERS CONTAINER -------------------- */
 .orders-container {
     width: 90%;
     max-width: 1000px;
@@ -44,7 +42,6 @@ button.return-btn:hover {
     box-shadow: 0 4px 10px rgba(255,0,0,0.3);
 }
 
-/* -------------------- TABLE -------------------- */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -65,7 +62,7 @@ tr:hover {
     background-color: #f1f1f1;
 }
 
-/* -------------------- STATUS COLORS -------------------- */
+
 .status-pending { color: orange; font-weight: bold; }
 .status-completed { color: green; font-weight: bold; }
 .status-cancelled { color: red; font-weight: bold; }
@@ -74,11 +71,10 @@ tr:hover {
 .payment-paid { color: green; }
 .payment-refunded { color: red; }
 
-/* -------------------- EMPTY ORDERS -------------------- */
 .empty-orders {
     text-align: center;
     margin-top: 40px;
-    color: #555;
+    color: #474646;
 }
 
 .empty-orders a {

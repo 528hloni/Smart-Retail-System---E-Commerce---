@@ -7,7 +7,7 @@ body {
     text-align: center;
 }
 
-/* -------------------- NAVBAR -------------------- */
+
 .navbar {
     background: linear-gradient(90deg, #000000, #2b0000);
     padding: 15px 0;
@@ -73,7 +73,7 @@ body {
     width: 100%;
 }
 
-/* -------------------- PRODUCT CONTAINER -------------------- */
+
 .product-container {
     max-width: 1000px;
     margin: 40px auto;
@@ -83,7 +83,7 @@ body {
     align-items: center;
 }
 
-/* -------------------- ACTION BUTTONS -------------------- */
+
 .action-buttons {
     display: flex;
     gap: 10px;
@@ -106,7 +106,7 @@ body {
     box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4);
 }
 
-/* -------------------- PRODUCT IMAGE -------------------- */
+
 .product-image img {
     width: 100%;
     max-width: 450px;
@@ -116,7 +116,7 @@ body {
     margin-bottom: 20px;
 }
 
-/* -------------------- PRODUCT INFO -------------------- */
+
 .product-info h3 {
     font-size: 24px;
     margin-bottom: 8px;
@@ -142,7 +142,6 @@ body {
     margin: 10px 0;
 }
 
-/* -------------------- QUANTITY & ADD TO CART -------------------- */
 .add-to-cart-form {
     margin-top: 20px;
 }
@@ -186,7 +185,7 @@ body {
     font-size: 16px;
 }
 
-/* ADD TO CART BUTTON */
+
 .add-to-cart-form input[type="submit"] {
     background-color: #ff1a1a;
     color: #fff;
@@ -203,7 +202,7 @@ body {
     box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
 }
 
-/* -------------------- RESPONSIVE -------------------- */
+/* Resonsive */
 @media (max-width: 768px) {
     .product-container {
         padding: 0 10px;

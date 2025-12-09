@@ -10,12 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     $password = trim($_POST['password']??'');
 
-    
-
-   
 
     try{
-
 
     if ($action === 'Login' && $email && $password){ //checking if button Login was clicked and all inputs are filled
         // $sql = "SELECT * FROM users WHERE email = ?"; // query to find user with matching email
@@ -23,10 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
          $stmt = $pdo->prepare($sql);
             $stmt->execute([$email]);
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-
-
-
 
             //if matching user is found then compare passwords(input and database)
             if ($user) {

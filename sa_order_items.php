@@ -85,8 +85,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
                 <th>Price (R)</th>
                 <th>Total (R)</th>
                 
-               
-                
             </tr>
        </thead>
        <tbody>

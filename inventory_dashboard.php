@@ -215,10 +215,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (stockCell) {
                         const oldValue = stockCell.textContent;
                         if (oldValue != item.quantity) {
-                            // Update value
+                            //Update value
                             stockCell.textContent = item.quantity;
 
-                            // Flash background color to indicate change
+                            //Flash background color to indicate change
                             stockCell.style.backgroundColor = '#d4edda';
                             setTimeout(() => stockCell.style.backgroundColor = '', 600);
                         }
@@ -228,10 +228,10 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => console.error('Error fetching stock:', error));
     }
 
-    // Run immediately on load
+    //Run immediately on load
     updateStock();
 
-    // Update stock every 10 seconds
+    //Update stock every 10 seconds
     setInterval(updateStock, 10000);
 
 });
