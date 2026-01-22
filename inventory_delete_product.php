@@ -21,7 +21,7 @@ try {
         $product = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($product) {
-            // --- Delete the image file first ---
+            //Delete the image file first
             if (!empty($product['image_url'])) {
                 // Assuming image_url looks like: "uploaded_images/Rim1.jpg"
                 $imagePath = __DIR__ . '/' . $product['image_url'];
@@ -31,7 +31,7 @@ try {
                 }
             }
 
-            // --- Delete the product record ---
+            //  Delete the product record
             $stmt = $pdo->prepare("DELETE FROM rims WHERE rim_id = ?");
             $stmt->execute([$id]);    
 
