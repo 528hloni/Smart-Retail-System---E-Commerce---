@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sales: Order Items</title>
-    <link rel="stylesheet" href="sa_order_items.css">
+    <link rel="stylesheet" href="css/sa_order_items.css">
 </head>
 <body>
 

@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 <html>
 <head>
     <title>Payment Verification</title>
-    <link rel="stylesheet" href="pp_verification.css">
+    <link rel="stylesheet" href="css/pp_verification.css">
 </head>
 <body>
     <nav class="navbar">

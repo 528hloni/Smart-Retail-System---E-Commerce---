@@ -116,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Checkout - Wheels of Fortune</title>
-<link rel="stylesheet" href="c_checkout.css">
+<link rel="stylesheet" href="css/c_checkout.css">
 </head>
 <body>
 <div class="container">

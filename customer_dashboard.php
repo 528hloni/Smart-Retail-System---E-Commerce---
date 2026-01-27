@@ -44,7 +44,7 @@ if (isset($_GET['user_id']) && is_numeric($_GET['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Dashboard</title>
-    <link rel="stylesheet" href="customer_dashboard.css">
+    <link rel="stylesheet" href="css/customer_dashboard.css">
 
     
 </head>

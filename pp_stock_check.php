@@ -76,7 +76,7 @@ try {
     </div>
 </nav>
     <title>Stock Verification</title>
-     <link rel="stylesheet" href="pp_stock_check.css">
+     <link rel="stylesheet" href="css/pp_stock_check.css">
 </head>
 <body>
 

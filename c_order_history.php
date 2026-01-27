@@ -36,7 +36,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Orders</title>
-    <link rel="stylesheet" href="c_order_history.css">
+    <link rel="stylesheet" href="css/c_order_history.css">
     
 </head>
 <body>
