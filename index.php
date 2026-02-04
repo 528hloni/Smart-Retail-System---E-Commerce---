@@ -11,7 +11,7 @@
     <nav class="navbar">
     <div class="nav-container">
         <div class="nav-logo">
-            <a href="customer_dashboard.php>">Wheels of Fortune</a>
+            <a href="customer_dashboard.php">Wheels of Fortune</a>
         </div>
         <ul class="nav-links">
             <li><a href="login.php">Login</a></li>
@@ -29,6 +29,7 @@
                     
                 </div>
             </div>
+</div>     
 
 
             <section class="features" id="features">
@@ -36,22 +37,18 @@
         <p>We're revolutionizing the car rim industry with cutting-edge technology and unmatched quality</p>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon"></div>
                 <h3>OEM & Aftermarket</h3>
                 <p>Both factory-spec replacements and custom upgrade options available.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon"></div>
                 <h3>Premium Quality</h3>
                 <p>Only the finest materials and manufacturing processes. Each rim is built to last and perform.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon"></div>
                 <h3>Warranty Protected</h3>
                 <p>All our wheels come with a comprehensive warranty for peace of mind.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon"></div>
                 <h3>Certified Authentic</h3>
                 <p> No knockoffs, only genuine branded rims from trusted manufacturers.</p>
             </div>
@@ -94,7 +91,7 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h4>Wheels of Fortune</h4>
-                <p>Your trusted partner for premium car rims and wheels. Transforming vehicles with style and performance since 2020.</p>
+                <p>Your trusted partner for premium car rims and wheels. Transforming vehicles with style and performance since 2025.</p>
             </div>
 
             <div class="footer-bottom">
