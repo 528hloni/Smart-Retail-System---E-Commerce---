@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Landing Page</title>
     <link rel="stylesheet" href="css/index.css">
+     <script src="js/index.js"></script>
 
 </head>
 <body>
@@ -20,17 +21,30 @@
 </nav>
 
 
-<div class="hero-content">
+
+    <section class="hero">
+       <video class="hero-video" autoplay muted loop playsinline>
+    <source src="landingpage/herovideo.mp4" type="video/mp4">
+      </video>
+       
+        
+        <div class="hero-content">
             <div class="hero-text">
-                <h1>Premium <span>Wheels</span> That Transform Your Ride</h1>
+                <h1>Premium <span>Car Rims</span> That Transform Your Ride</h1>
+            </div>
+            
+            
+            <div class="hero-description">
                 <p>Experience the perfect blend of style, performance, and innovation. Our smart retail system brings you the finest selection of wheels tailored to your vehicle.</p>
-                <div class="hero-buttons">
+            </div>  
+
+            <div class="hero-buttons">
                     <a href="login.php" class="cta-button">Browse Catalog</a>
                     
-                </div>
-            </div>
-</div>     
+                </div> 
+</div>  
 
+</section>
 
             <section class="features" id="features">
         <h2>Why Choose Wheels of Fortune</h2>
@@ -57,8 +71,28 @@
 
 
     <section class="products" id="products">
-        <h2>A Glimpse Of Our Catalog </h2>
+    <h2>A Glimpse Of Our Catalog</h2>
+    
+    <div class="video-carousel">
+        
+        <button class="carousel-arrow prev-arrow" onclick="changeVideo(-1)">
+            <span>&#8249;</span>
+        </button>
+        
+        
+        <div class="carousel-video-container">
+            <video id="carouselVideo" class="carousel-video" autoplay muted loop playsinline>
+                <source id="videoSource" src="landingpage/wheel1.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+    
+        <button class="carousel-arrow next-arrow" onclick="changeVideo(1)">
+            <span>&#8250;</span>
+        </button>
+    </div>
 </section>
+
 
 
 <section class="why-choose" id="about">
