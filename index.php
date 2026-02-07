@@ -30,12 +30,13 @@
         
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Premium <span>Car Rims</span> That Transform Your Ride</h1>
+                <h1>Premium <span>Car Wheels</span> That Transform Your Ride</h1>
             </div>
             
             
             <div class="hero-description">
-                <p>Experience the perfect blend of style, performance, and innovation. Our smart retail system brings you the finest selection of wheels tailored to your vehicle.</p>
+                <p>Experience the perfect blend of style, performance, and innovation.</p> 
+                <p>Welcome to <span>Wheels Of Fortune</span>, where Every Wheel Is A Win.</p>
             </div>  
 
             <div class="hero-buttons">
@@ -48,7 +49,7 @@
 
             <section class="features" id="features">
         <h2>Why Choose Wheels of Fortune</h2>
-        <p>We're revolutionizing the car rim industry with cutting-edge technology and unmatched quality</p>
+        <p>We're revolutionizing the car wheel industry by sourcing the best and unmatched quality</p>
         <div class="features-grid">
             <div class="feature-card">
                 <h3>OEM & Aftermarket</h3>
@@ -96,20 +97,29 @@
 
 
 <section class="why-choose" id="about">
-        <h2>Why Thousands Choose Us</h2>
-        <div class="why-grid">
-            <div class="why-content">
-                <h3>Built on Excellence</h3>
-                <ul class="why-list">
-                    <li>Over 10,000 satisfied customers nationwide</li>
-                    <li>Partnerships with leading wheel manufacturers</li>
-                    <li>Industry-leading warranty on all products</li>
-                    <li>Transparent pricing with no hidden fees</li>
-                    <li>30-day satisfaction guarantee</li>
-                </ul>
-            </div>
+    <h2>Why Thousands Choose Us</h2>
+    <div class="why-grid">
+        
+        <div class="why-content">
+            <h3>Built on Excellence</h3>
+            <ul class="why-list">
+                <li>Over 10,000 satisfied customers nationwide</li>
+                <li>Partnerships with leading wheel manufacturers</li>
+                <li>Industry-leading warranty on all products</li>
+                <li>Certified installation technicians</li>
+                <li>Transparent pricing with no hidden fees</li>
+                <li>30-day satisfaction guarantee</li>
+            </ul>
         </div>
-    </section>
+        
+        
+        <div class="why-video-container">
+            <video class="why-video" autoplay muted loop playsinline>
+                <source src="landingpage/whyvideo.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</section>
 
 
     <section class="final-cta" id="contact">
@@ -125,11 +135,12 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h4>Wheels of Fortune</h4>
-                <p>Your trusted partner for premium car rims and wheels. Transforming vehicles with style and performance since 2025.</p>
+                <p>Your trusted partner for premium car wheels. Transforming vehicles with style and performance since 2025.</p>
             </div>
 
             <div class="footer-bottom">
             <p>&copy; 2025 Wheels of Fortune. All rights reserved. | Terms of Service | Privacy Policy</p>
+            <p> Web Development by 528 Group</p>
         </div>
     </footer>
 

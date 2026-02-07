@@ -1,4 +1,3 @@
-
 const wheelVideos = [
     'landingpage/wheel1.mp4',
     'landingpage/wheel2.mp4',
