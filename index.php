@@ -36,7 +36,7 @@
             
             <div class="hero-description">
                 <p>Experience the perfect blend of style, performance, and innovation.</p> 
-                <p>Welcome to <span>Wheels Of Fortune</span>, where Every Wheel Is A Win.</p>
+                <p>Welcome to <span>Wheels Of Fortune</span>, Where Every Wheel Is A Win.</p>
             </div>  
 
             <div class="hero-buttons">
@@ -106,7 +106,6 @@
                 <li>Over 10,000 satisfied customers nationwide</li>
                 <li>Partnerships with leading wheel manufacturers</li>
                 <li>Industry-leading warranty on all products</li>
-                <li>Certified installation technicians</li>
                 <li>Transparent pricing with no hidden fees</li>
                 <li>30-day satisfaction guarantee</li>
             </ul>
