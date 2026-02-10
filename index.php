@@ -107,7 +107,7 @@
                 <li>Partnerships with leading wheel manufacturers</li>
                 <li>Industry-leading warranty on all products</li>
                 <li>Transparent pricing with no hidden fees</li>
-                <li>30-day satisfaction guarantee</li>
+                <li>30-days satisfaction guarantee</li>
             </ul>
         </div>
         
@@ -121,7 +121,7 @@
 </section>
 
 
-    <section class="final-cta" id="contact">
+    <section class="final-cta" id="contact">git
         <div class="final-cta-content">
             <h2>Ready to Transform Your Ride?</h2>
             <p>Browse our catalog and find the perfect wheels for your vehicle today</p>
