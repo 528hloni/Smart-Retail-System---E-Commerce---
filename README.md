@@ -1,4 +1,6 @@
 ## Current Snippet:
+**Landing Page**
+![Demo](https://github.com/528hloni/Smart-Retail-System---E-Commerce---/blob/main/Demo/LandingPageVid.gif)
 
 
 **Functionality**
