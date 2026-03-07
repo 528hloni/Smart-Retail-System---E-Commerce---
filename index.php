@@ -35,16 +35,15 @@
             
             
             <div class="hero-description">
-                <p>Experience the perfect blend of style, performance, and innovation.</p> 
+                <p>Experience the perfect blend of style, performance and innovation.</p> 
                 <p>Welcome to <span>Wheels Of Fortune</span>, Where Every Wheel Is A Win.</p>
             </div>  
 
             <div class="hero-buttons">
-                    <a href="login.php" class="cta-button">Browse Catalog</a>
+                    <a href="products.php" class="cta-button">Browse Catalog</a>
                     
                 </div> 
-</div>  
-
+</div>      
 </section>
 
             <section class="features" id="features">
@@ -121,11 +120,11 @@
 </section>
 
 
-    <section class="final-cta" id="contact">git
+    <section class="final-cta" id="contact">
         <div class="final-cta-content">
             <h2>Ready to Transform Your Ride?</h2>
             <p>Browse our catalog and find the perfect wheels for your vehicle today</p>
-            <a href="login.php" class="cta-button-white">Get Started Now</a>
+            <a href="products.php" class="cta-button-white">Get Started Now</a>
         </div>
     </section>
 

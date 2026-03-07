@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sales: Customer Details</title>
-    <link rel="stylesheet" href="css/sales_associate_dashboard.css">
+    <link rel="stylesheet" href="css/sa_customer_details.css">
 </head>
 <body>
 
@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 
 <h1> Customer Profile : <?= htmlentities($customer['name']) ?> <?= htmlentities($customer['surname']) ?> </h1> 
 <br>
-
+<div class="details-wrapper">
    <p><strong>User ID:</strong> <br>
    <?= htmlentities($customer['user_id']) ?></p>
    <p><strong>ID Number:</strong> <br>
@@ -79,9 +79,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
    <?= htmlentities($customer['email']) ?></p>
    <p><strong>Phone:</strong> <br>
    <?= htmlentities($customer['phone']) ?></p>
-   
+</div>  
    <form method="POST">
     <input type="submit" name="action" value="Return Dashboard">
+
 </form>
   
    
