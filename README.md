@@ -8,10 +8,10 @@ This project was built using HTML, CSS, JavaScript, PHP and MySQL (via phpMyAdmi
 
 ## Features
 
-**Customer**
--Browse product catalog
--Add products to the shopping cart
--Checkout orders via a mock payment system
+**Customer** <br>
+-Browse product catalog <br>
+-Add products to the shopping cart <br>
+-Checkout orders via a mock payment system <br>
 -View order history (Pending, Failed, Successful)
 
 **Inventory Manager**
