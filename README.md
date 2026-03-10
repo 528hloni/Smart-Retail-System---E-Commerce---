@@ -14,22 +14,22 @@ This project was built using HTML, CSS, JavaScript, PHP and MySQL (via phpMyAdmi
 -Checkout orders via a mock payment system <br>
 -View order history (Pending, Failed, Successful)
 
-**Inventory Manager**
--Dashboard for managing products
--Perform CRUD operations on products (Create, Read, Update, Delete)
+**Inventory Manager** <br>
+-Dashboard for managing products <br>
+-Perform CRUD operations on products (Create, Read, Update, Delete) <br>
 -View and maintain inventory
 
-**Sales Associate**
--Dashboard displaying sales statistics
--View all orders and order details
--Access customer information related to orders
+**Sales Associate** <br>
+-Dashboard displaying sales statistics <br>
+-View all orders and order details <br>
+-Access customer information related to orders <br>
 
-**Payment Processor**
--View all orders waiting for verification
--Verify payments against the business account
--Perform stock checks before authorizing orders
+**Payment Processor** <br>
+-View all orders waiting for verification <br>
+-Verify payments against the business account <br>
+-Perform stock checks before authorizing orders <br>
 
-**Technologies Used**
--Frontend: HTML, CSS, JavaScript
--Backend: PHP
+**Technologies Used** <br>
+-Frontend: HTML, CSS, JavaScript <br>
+-Backend: PHP <br>
 -Database: MySQL (phpMyAdmin)
