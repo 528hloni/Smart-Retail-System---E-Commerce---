@@ -35,6 +35,6 @@ This project was built using HTML, CSS, JavaScript, PHP and MySQL (via phpMyAdmi
 -Database: MySQL (phpMyAdmin) <br>
 
 ## System Demonstration
-Watch the full system demo:
+Watch the system demo video:
 https://youtu.be/yLXobttpFWo
 
