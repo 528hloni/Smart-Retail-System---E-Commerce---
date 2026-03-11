@@ -2,7 +2,7 @@
 
 *Overview*
 
-Wheels of Fortune is a fully functional e-commerce web application that simulates an online retail platform for automotive wheels and rims. The system provides different user experiences based on roles: customers, inventory managers, sales associates and payment processors.
+Wheels of Fortune is a fully functional e-commerce web application that simulates an online retail platform for automotive wheels. The system provides different user experiences based on roles: customers, inventory managers, sales associates and payment processors.
 
 This project was built using HTML, CSS, JavaScript, PHP and MySQL (via phpMyAdmin) and demonstrates full-stack web development and role-based functionality.
 
