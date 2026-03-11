@@ -179,25 +179,4 @@ table a:hover {
     background: #ffcccc;
 }
 
-/*Responsive*/
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        gap: 10px;
-    }
 
-    .nav-links {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    table, .container {
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    form input[type="text"], form input[type="submit"] {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-}

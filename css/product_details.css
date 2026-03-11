@@ -202,23 +202,3 @@ body {
     box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
 }
 
-/* Resonsive */
-@media (max-width: 768px) {
-    .product-container {
-        padding: 0 10px;
-    }
-
-    .product-image img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .action-buttons {
-        flex-direction: column;
-    }
-
-    .inline-form input[type="submit"],
-    .add-to-cart-form input[type="submit"] {
-        width: 100%;
-    }
-}

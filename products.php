@@ -62,7 +62,6 @@ try {
         <ul class="nav-links">
             <?php if ($isLoggedIn && $user_id): ?>
                 <li><a href="customer_dashboard.php?user_id=<?= $user_id ?>">Dashboard</a></li>
-                <li><a href="products.php?user_id=<?= $user_id ?>">Shop</a></li>
                 <li><a href="c_cart.php?user_id=<?= $user_id ?>">Cart</a></li>
                 <li><a href="c_order_history.php?user_id=<?= $user_id ?>">My Orders</a></li>
                 <li><a href="logout.php">Logout</a></li>
@@ -78,13 +77,12 @@ try {
 
 
 
-
+<div class="hero-section">
     <h1> PREMIUM WHEELS FOR YOUR RIDE </h1>
-    <br><br>
     <h3>Upgrade Your Wheels, Upgrade Your Style</h3>
-    <br><br>
+</div>    
 
-<h2>FEATURED WHEELS</h2>
+<h2 class="section-title">FEATURED WHEELS</h2>
   
 <div class="product-grid">
     <?php foreach ($results as $row): ?>

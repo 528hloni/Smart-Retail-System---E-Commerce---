@@ -112,12 +112,3 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive */
-@media (max-width: 500px) {
-    .register-container {
-        padding: 25px 20px;
-    }
-    .form-title {
-        font-size: 20px;
-    }
-}

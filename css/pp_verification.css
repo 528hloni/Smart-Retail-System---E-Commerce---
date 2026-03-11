@@ -113,7 +113,7 @@ input[type="submit"]:hover {
     background-color: #000;        
     color: #fff;
 
-
+}
 .btn-danger {
     background: #cc0000;
 }
@@ -145,17 +145,7 @@ a.action-btn {
     text-align: center;
 }
 
-/*Responsive*/
-@media (max-width: 600px) {
-    .container {
-        width: 90%;
-        padding: 18px;
-    }
-    input[type="submit"], a.action-btn {
-        width: 100%;
-    }
-}
-}
+
 
 .link-buttons {
     text-align: center;

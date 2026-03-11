@@ -117,35 +117,3 @@ tbody td a:hover {
     text-decoration: underline;
 }
 
-/*Responsive */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 24px;
-    }
-
-    .nav-container {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    table, thead, tbody, th, td, tr {
-        display: block;
-    }
-
-    thead {
-        display: none;
-    }
-
-    tbody td {
-        display: flex;
-        justify-content: space-between;
-        padding: 10px 5px;
-        border-bottom: 1px solid #ccc;
-    }
-
-    tbody td::before {
-        content: attr(data-label);
-        font-weight: bold;
-        color: #111;
-    }
-}

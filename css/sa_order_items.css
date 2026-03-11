@@ -127,20 +127,3 @@ input[type="submit"]:hover {
     background-color: #cc0000;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    table, .container {
-        width: 100%;
-        overflow-x: auto;
-    }
-}

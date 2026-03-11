@@ -6,6 +6,69 @@ body {
     color: #111;
 }
 
+.navbar {
+    background: linear-gradient(90deg, #000000, #3a0000);
+    padding: 15px 0;
+    border-bottom: 2px solid #ff1a1a;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    color: #ff1a1a;
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+    cursor: default; 
+}
+
+.nav-logo:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #ff1a1a;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li a {
+    color: #fff;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ff1a1a;
+    text-shadow: 0 0 5px #ff1a1a;
+}
+
+.nav-links li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff1a1a;
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
 h1, h2, h3 {
     text-align: center;
     margin-bottom: 15px;
@@ -203,86 +266,5 @@ tr:hover {
 }
 
 
-@media (max-width: 768px) {
-    .sales-stats {
-        flex-direction: column;
-        align-items: center;
-    }
 
-    .top-rims-container {
-        flex-direction: column;
-        align-items: center;
-    }
 
-    #autocomplete-results {
-        width: 100%;
-    }
-
-    #search_input, #filter {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-}
-
-.navbar {
-    background: linear-gradient(90deg, #000000, #1a0000);
-    padding: 15px 0;
-    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 2px solid #ff1a1a;
-}
-
-.nav-container {
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-logo {
-    color: #ff1a1a;
-    font-size: 26px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: 0.3s ease;
-    cursor: default; 
-}
-
-.nav-logo:hover {
-    color: #fff;
-    text-shadow: 0 0 10px #ff1a1a;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-}
-
-.nav-links li a {
-    color: #fff;
-    font-weight: bold;
-    transition: 0.3s ease;
-}
-
-.nav-links li a:hover {
-    color: #ff1a1a;
-    text-shadow: 0 0 5px #ff1a1a;
-}
-
-.nav-links li a::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #ff1a1a;
-    transition: width 0.3s ease;
-}
-
-.nav-links li a:hover::after {
-    width: 100%;
-}

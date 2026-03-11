@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 <body>
     <div class="login-container">
         <div class="login-header">
-            <h1>Wheels Of Fortune</h1>
+            <h1><a href="index.php">Wheels Of Fortune</a></h1>
             <h3>Where Every Wheel Is A Win!</h3>
         </div>
 

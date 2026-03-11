@@ -12,7 +12,7 @@
     <nav class="navbar">
     <div class="nav-container">
         <div class="nav-logo">
-            <a href="customer_dashboard.php">Wheels of Fortune</a>
+            <a href="login.php">Wheels of Fortune</a>
         </div>
         <ul class="nav-links">
             <li><a href="login.php">Login</a></li>

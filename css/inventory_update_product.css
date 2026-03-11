@@ -158,16 +158,3 @@ form img {
     border-radius: 8px;
 }
 
-/* Responsive*/
-@media (max-width: 768px) {
-    form {
-        padding: 20px;
-    }
-
-    input[type="submit"],
-    input[type="reset"],
-    input[formnovalidate] {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-}
