@@ -32,4 +32,9 @@ This project was built using HTML, CSS, JavaScript, PHP and MySQL (via phpMyAdmi
 **Technologies Used** <br>
 -Frontend: HTML, CSS, JavaScript <br>
 -Backend: PHP <br>
--Database: MySQL (phpMyAdmin)
+-Database: MySQL (phpMyAdmin) <br>
+
+## System Demonstration
+Watch the full system demo:
+https://youtu.be/yLXobttpFWo
+
